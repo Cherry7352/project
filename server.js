@@ -133,7 +133,7 @@ function cosineSimilarity(vecA, vecB) {
 // Fetch embedding from Python server
 async function getEmbedding(sentence) {
     try {
-        const response = await axios.post('http://localhost:5001/embed', { sentence });
+        const response = await axios.post('python-backend-production-b950.up.railway.app/embed', { sentence });
         return response.data.embedding;
     } catch (error) {
         console.error('Error getting embedding from Python server:', error);
