@@ -339,6 +339,7 @@ document.addEventListener("DOMContentLoaded", () => {
             })
             .catch((error) => {
                 console.error("Error:", error);
+                spinner.style.display = "none";
                 addMessageToChat("There was an error connecting to the server.", "bot-message");
             });
     };
