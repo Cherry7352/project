@@ -62,6 +62,7 @@ const quickResponses = {
 // Chatbot API route
 app.post('/chat', async (req, res) => {
     const userMessage = req.body.message;
+    console.log(userMessage);
 
     // Validate user message
     if (!userMessage || typeof userMessage !== 'string') {
