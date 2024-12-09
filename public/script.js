@@ -319,7 +319,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const sendMessageToBackend = (message) => {
         const spinner = document.getElementById("loadingSpinner");
     spinner.style.display = "block"; // Show the spinner
-        fetch("http://localhost:3000/chat", {
+        fetch("python-backend-production-b950.up.railway.app/chat", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
