@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const mysql = require('mysql2');
 const axios = require('axios');
 const path = require('path');
+require('dotenv').config();
 
 const app = express();
 const PORT = 3000; // Unified port for all APIs
@@ -13,12 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 // Database connection
-const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'cherry',
-    database: 'animal_database'
-});
+const db = mysql.createConnection(process.env.MYSQL_URL);
 
 db.connect(err => {
     if (err) throw err;
