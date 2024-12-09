@@ -1,0 +1,245 @@
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-color: #030101;
+}
+
+h1 {
+    margin: 20px 0;
+    background-color: #01f567;
+    display: inline-block;
+    font-family: serif;
+    padding: 10px;
+    border-radius: 20px;
+}
+label{
+    background-color: #01f567;
+    font-weight: bolder;
+    font-family: serif;
+    padding: 10px;
+    border-radius: 10px;
+}
+select {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #f8f8f8;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    appearance: none;  /* To remove default arrow in some browsers */
+    outline: none;  /* Remove focus outline */
+    font-family: serif;
+    font-weight: bold;
+}
+
+/* Adding a custom arrow */
+select::-ms-expand {
+    display: none; /* Hide default arrow in IE */
+}
+
+select:focus {
+    border-color: #0066cc;  /* Change border color when focused */
+}
+
+/* Customizing the dropdown arrow */
+select::after {
+    content: '▼';
+    font-size: 20px;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Style for options */
+option {
+    padding: 10px;
+    font-size: 16px;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.gallery-container > div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.gallery-container > div> img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.animal-card:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+.gallery-container{
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    grid-auto-rows: 200px;
+    grid-auto-flow: dense;
+}
+.gallery-container .wide{
+    grid-column: span 2;
+}
+.gallery-container .tall{
+    grid-row: span 2;
+}
+.gallery-container .big{
+    grid-column: span 2;
+    grid-row: span 2;
+}
+.load-more {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #01f567;
+    color: #030101;
+    font-family: serif;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.load-more:hover {
+    background-color: #0056b3;
+}
+
+.load-more:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+
+@media (max-width: 768px) {
+    .gallery-item {
+        flex: 0 1 calc(50% - 15px);
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-item {
+        flex: 0 1 100%;
+    }
+}
+
+
+/*Modal Popup*/
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+/*Modal Popup*/
+.modal-content {
+    background:#0c0c0c;
+    padding: 20px;
+    max-width: 700px;
+    width: 75%;
+    height: 75%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    top:50px;
+    left:250px;
+}
+.modal-body{
+    display: flex;
+}
+.close-btn {
+    position: absolute;
+    top: -10px;
+    right: -30px;
+    font-size: 40px;
+    font-weight: bold;
+    color:#01f567;
+    cursor: pointer;
+}
+/* Slider Styling */
+.modal-slider {
+    position: relative;
+    flex: 1;
+    overflow: hidden;
+}
+.modal-slider-container {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 100%;
+    height: 100%;
+    
+}
+.modal-image {
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: flex;
+    border-radius: 10%;
+}
+.slider-button {
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.prev-slide {
+    left: 10px;
+}
+.next-slide {
+    right: 10px;
+}
+/* Modal Text Section */
+.modal-text {
+    flex: 1;
+    padding: 20px;
+    font-family: serif;
+    color: #01f567;
+    object-fit: cover;
+    overflow-y: auto; /* Add vertical scrolling */
+    max-height: calc(100% - 40px); /* Ensures it fits within modal height */
+}
+
+
+.modal-text h3 {
+    margin: 0 0 10px;
+    font-size: 24px;
+    text-align: center;
+    color: #030101;
+    background-color: #01f567;
+    border-radius: 10px;
+}
+.modal-text p {
+    margin: 10px 0;
+    line-height: 1.5;
+    font-size: 16px;
+}

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Animal Facts</title>
+    <link rel="icon" href="pics/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <img src="pics/logo.png" alt="Animal Facts Logo" class="logo">
+        </div>
+        <div class="header-content">
+            <h1 class="site-title">The Animal Facts</h1>
+            <div class="line thick-line"></div>
+            <h2 class="slogan">Get your daily dose of animal facts.</h2>
+            <div class="line thin-line"></div>
+            <nav class="nav-links">
+                <a href="index.html" class="home-link">Home</a>
+                <a href="#gallery" class="gallery-link">Gallery</a>
+                <a href="#random-fact-section" class="random-link">Random</a>
+                <a href="#about" class="about-link">About</a>
+            </nav>
+            <div class="stylish-search-bar">
+                <input type="text" id="search-input" placeholder="Search for an animal..." />
+                <button id="searchButton" onclick="searchAnimal()">Search</button>
+            </div>
+        </div>
+    </header>
+     
+
+    <main class="content">
+      
+        
+        <section class="animal-slider-section">
+            <div class="animal-slider">
+                <!-- Slides will be dynamically inserted here -->
+            </div>
+            <!-- Navigation Buttons -->
+            <button class="slider-button prev" id="prev">❮</button>
+            <button class="slider-button next" id="next">❯</button>
+        </section><br><br><br><br>
+        </section>
+        
+        
+        <section class="gallery-section" id="gallery">
+            <h2>Gallery</h2>
+            <div class="gallery-container">
+                <!-- Image Blocks -->
+                <div class="gallery-item">
+                    <img src="pics/penguin/penguin2.jpg" alt="Gallery Image 1" onclick="searchAnimal1('penguin')"  loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="pics/elephant/elephant3.jpg" alt="Gallery Image 2" onclick="searchAnimal1('elephant')" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="pics/cheetah/cheetah2.jpg" alt="Gallery Image 3" onclick="searchAnimal1('cheetah')" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="pics/cat/cat.jpg" alt="Gallery Image 4" onclick="searchAnimal1('cat')" loading="lazy">
+                </div>
+                
+                <!-- See More Block -->
+                <div class="gallery-item see-more">
+                    <a href="gallery.html">See More</a>
+                </div>
+            </div>
+        </section>
+        
+       
+         <section id="random-fact-section" class="random-fact-section">
+            <h2>Get a Random Fact!</h2><br>
+            <div class="fact-container">
+                <!-- Placeholder for dynamically added content -->
+            </div><br><br>
+            <button onclick="showRandomFact()">Show Random Fact</button>
+        </section>
+
+        <section id="about" class="about-sec">
+            <div class="about-div">
+                <h1 style="background-color: #01f567;
+                color: #030101;
+                display: inline-block;
+                padding: 10px;
+                border-radius: 10px;">About</h1>
+                <p>Animals, fascinating creatures that inhabit our planet, are a diverse group of organisms belonging to the kingdom Animalia. They are multicellular, eukaryotic, and heterotrophic, meaning they obtain energy by consuming other organisms. This diverse kingdom encompasses a vast array of species, from microscopic organisms to the largest animals on Earth.<br>
+
+                    Animals exhibit a wide range of characteristics, including motility, reproduction, growth, and development. They have evolved various adaptations to survive in diverse environments, from the depths of the ocean to the highest mountain peaks. Based on their physical characteristics, animals are primarily classified into two major groups: vertebrates and invertebrates. Vertebrates possess a backbone, while invertebrates lack this skeletal structure.<br>
+                    
+                    Animals play a vital role in ecosystems, contributing to nutrient cycling, pollination, and seed dispersal. They also provide humans with food, companionship, and various resources. However, many animal species are facing threats due to human activities such as habitat loss, pollution, and climate change. Conservation efforts are crucial to protect biodiversity and ensure the survival of these remarkable creatures.
+                </p>
+            </div>
+            <img class="about-img" src="pics/animal1.jpg" alt="About Image">
+        </section>
+        
+    </main>
+<!-- Modal Section -->
+
+
+<!-- Animal Modal -->
+<div id="animalModal" class="modal">
+    <div class="modal-content">
+        <span id="modalClose" class="close-btn">&times;</span>
+        <!-- Animal Data Section -->
+        <div class="modal-text">
+            <h3 id="modalAnimalName">Animal Name</h3>
+            <p id="modalAnimalDescription">Animal Description</p>
+            <p><strong>Facts:</strong> <span id="modalAnimalFact">Animal Fun Fact</span></p>
+        </div>
+        <!-- Image Slider Container -->
+        <div class="modal-slider">
+            <button class="slider-button prev-slide" onclick="prevModalImage()">❮</button>
+            <div class="modal-slider-container">
+                <!-- Images will be dynamically added here -->
+            </div>
+            <button class="slider-button next-slide" onclick="nextModalImage()">❯</button>
+        </div>
+    </div>
+</div>
+ 
+<!-- Chatbot Icon -->
+<div id="chatbot-icon" class="chatbot-icon">
+    💬
+</div>
+
+<!-- Chat Modal -->
+<div id="chatModal" class="chat-modal">
+    <div class="chat-modal-content">
+        <span id="chatModalClose" class="chat-close-btn">&times;</span>
+        <h3 style="display: inline-block; 
+                   background-color: #01f567;
+                   color: #030101;
+                   padding: 10px;
+                   border-radius: 10px;
+                   text-align: center;
+                   margin-left: 100px;">AnimalFacts Chatbot</h3>
+        <div class="chat-container">
+            <!-- Chat content goes here -->
+            <div class="chat-messages" id="chatMessages">
+                <p style="text-align: left;
+                background-color: #368b3b;
+                border-radius: 10px;
+                margin: 5px;
+                padding: 8px 12px;
+                display: inline-block;
+                max-width: 80%;
+                font-weight: bold;">You can start by saying "Hello" or ask me a question.... </p>
+            </div>
+            <input type="text" id="chatInput" placeholder="Enter a question..." />
+            <button id="chatSendButton">Send</button>
+        </div>
+    </div>
+</div>
+
+<!-- Loading Spinner -->
+<div id="loadingSpinner" class="loading-spinner" style="display: none;">
+    <div class="spinner"></div>
+</div>
+
+
+
+
+
+
+    <footer>
+        <p>© 2024 Animal Facts | All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

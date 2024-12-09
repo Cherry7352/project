@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Gallery</title>
+    <link rel="stylesheet" href="gstyles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="gallery-header">
+            <h1> Animal Gallery</h1><br><br>
+            <label for="genre">Select Genre:</label>
+            <select id="animal-type" name="animal-type">
+                <option value="all">All</option>
+                <option value="mammal">Mammals</option>
+                <option value="bird">Birds</option>
+                <option value="reptile">Reptiles</option>
+                <option value="insect">Insects</option>
+                <option value="amphibian">Amphibian</option>
+                <option value="aquatic">Aquatic</option>
+            </select>
+        </div>
+        <br><br>
+        <div id="gallery-container" class="gallery-container"></div>
+        <button id="load-more" class="load-more">Load More</button>
+
+    <script src="gscript.js"></script>
+</body>
+<!-- Modal Section -->
+<div id="animalModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <div class="modal-body">
+            <!-- Image Slider Container -->
+            <div class="modal-slider">
+                <button class="slider-button prev-slide" onclick="prevModalImage()">❮</button>
+                <div class="modal-slider-container">
+                    <!-- Images will be dynamically added here -->
+                </div>
+                <button class="slider-button next-slide" onclick="nextModalImage()">❯</button>
+            </div>
+
+            <!-- Animal Data Section -->
+            <div class="modal-text">
+                <h3 id="modalAnimalName">Animal Name</h3>
+                <p id="modalAnimalDescription">Animal Description</p>
+                <p><strong>Fun Fact:</strong> <span id="modalAnimalFact">Animal Fun Fact</span></p>
+            </div>
+        </div>
+    </div>
+</div>
+</html>
