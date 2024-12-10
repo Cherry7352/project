@@ -134,13 +134,19 @@ function cosineSimilarity(vecA, vecB) {
 // Fetch embedding from Python server
 async function getEmbedding(sentence) {
     try {
-        const response = await axios.post('python-backend-production-b950.up.railway.app/embed', { sentence });
-        return response.data.embedding;
+        const response = await axios.post('https://python-backend-production-b950.up.railway.app/embed', { sentence });
+        if (response.data && response.data.embedding) {
+            return response.data.embedding;
+        } else {
+            console.error('Invalid response from embedding service:', response.data);
+            return null;
+        }
     } catch (error) {
-        console.error('Error getting embedding from Python server:', error);
+        console.error('Error getting embedding from Python server:', error.message);
         return null;
     }
 }
+
 
 
 app.get('/api/random-fact', (req, res) => {
